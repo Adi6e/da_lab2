@@ -20,6 +20,7 @@ bool simple(int  x){
 
 int main(int argc, char *argv[]){
 	int x;
+	bool prime = false;
 	while(1){
 		scanf("%d", &x);
 		if (!simple(x) || x < 0){
@@ -27,6 +28,7 @@ int main(int argc, char *argv[]){
 			fflush(stdout);
 		}
 		else{
+			prime = true;
 			return 1;
 		}
 	}
