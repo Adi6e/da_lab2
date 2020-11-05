@@ -34,13 +34,13 @@ int main(){
 	
 	if (pid > 0){//parent
 		close(fd[1]);
+		while(1){
+		int x;
 		bool b;
 		read(fd[0],&b,sizeof(bool));
 		if (b){
 			return 1;
 		}
-		while(1){
-		int x;
 		read(fd[0],&x,sizeof(int));
 		printf("%d\n",x);
 		fflush(stdout);
