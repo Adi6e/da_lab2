@@ -43,10 +43,10 @@ int main(){
 	}
     else{//child
 		if(dup2(file,0) < 0){
-			perror("Can't redirect standard output for child process");
+			perror("Can't redirect standard input for child process");
 		}
 		if(dup2(fd[1],1) < 0){
-			perror("Can't redirect standard input for child process");
+			perror("Can't redirect standard output for child process");
 		}
 		execl("child",NULL,NULL);
     }
