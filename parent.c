@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <stdbool.h>
 
 #define MAX_LENGTH 200
 
@@ -33,8 +34,13 @@ int main(){
 	
 	if (pid > 0){//parent
 		close(fd[1]);
-		int x;
+		bool b;
+		read(fd[0],&b,sizeof(bool));
+		if (b){
+			return 1;
+		}
 		while(1){
+		int x;
 		read(fd[0],&x,sizeof(int));
 		printf("%d\n",x);
 		fflush(stdout);
