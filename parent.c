@@ -42,7 +42,6 @@ int main(){
 		close(fd[0]);
 	}
     else{//child
-		close(fd[1]);
 		if(dup2(file,0) < 0){
 			perror("Can't redirect standard output for child process");
 		}
