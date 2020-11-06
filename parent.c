@@ -27,7 +27,7 @@ int main(){
 	}
 
 	//creating child process
-    int pid = fork();
+	int pid = fork();
 	if (pid < 0){
 		perror("Cant't create child process");
 	}
@@ -35,15 +35,14 @@ int main(){
 	if (pid > 0){//parent
 		close(fd[1]);
 		while(1){
-		int x;
-		bool b;
-		read(fd[0],&b,sizeof(bool));
-		if (b){
-			return 1;
-		}
-		read(fd[0],&x,sizeof(int));
-		printf("%d\n",x);
-		fflush(stdout);
+			int x;
+			bool b;
+			read(fd[0],&b,sizeof(bool));
+			if (b){
+				return 1;
+			}
+			read(fd[0],&x,sizeof(int));
+			printf("%d\n",x);
 		}
 		close(fd[0]);
 	}
