@@ -25,7 +25,6 @@ int main(int argc, char *argv[]){
 		scanf("%d", &x);
 		if (!simple(x) || x < 0){
 			printf("%d\n",x);
-			fflush(stdout);
 		}
 		else{
 			prime = true;
